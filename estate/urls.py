@@ -26,7 +26,7 @@ from .views import *
 urlpatterns = [ 
     path('image_upload', property_image_view, name = 'image_upload'), 
     path('success', success, name = 'success'), 
-    path('hotel_images', display_property_images, name = 'property_images'),
+    path('property_images', display_property_images, name = 'property_images'),
 ] 
   
 if settings.DEBUG: 

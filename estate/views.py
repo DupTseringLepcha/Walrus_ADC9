@@ -71,6 +71,7 @@ def property_image_view(request):
     else: 
         form = PropertyForm() 
     return render(request, 'property_image_form.html', {'form' : form}) 
+    return render (request,'display_property_images.html', {'form' : form})
   
   
 def success(request): 
