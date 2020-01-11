@@ -51,11 +51,13 @@ def get_estates_home(req):
     }
     return render(req,'estates_home.html',context=context)
 
-def upload(request)
-if request.method == 'POST':
+def upload(request):
+    context = {}
+    if request.method == 'POST':
         uploaded_file = request.FILES['document']
         print(uploaded_file.name)
         print(uploaded_file.size)
         fs = FileSystemStorage()
-        fs.save(uploaded_file.name, uploaded_file)
+        name = fs.save(uploaded_file.name, uploaded_file)
+        context['url'] = fs.url(name)
     return render(request, 'upload.html')
