@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
 from .models import Property
+from django.http import HttpResponse
+
+
 # Create your views here.
 
 def get_add_property(req):
@@ -49,3 +52,10 @@ def get_estates_home(req):
     }
     return render(req,'estates_home.html',context=context)
 
+def search(req):
+    return render(req, 'searchforms.html')
+
+def searchdata(req):
+    property_multiples = Property.objects.filter(property_name= req.GET['name']) 
+    print("The searched data" , property_multiples)
+    return HttpResponse("record searched")
