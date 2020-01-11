@@ -24,12 +24,11 @@ from django.conf.urls.static import static
 from .views import *
   
 urlpatterns = [ 
-    path('image_upload', hotel_image_view, name = 'image_upload'), 
+    path('image_upload', property_image_view, name = 'image_upload'), 
     path('success', success, name = 'success'), 
-    path('hotel_images', display_hotel_images, name = 'hotel_images'),
+    path('hotel_images', display_property_images, name = 'property_images'),
 ] 
   
 if settings.DEBUG: 
-        urlpatterns += static(settings.MEDIA_URL, 
-                              document_root=settings.MEDIA_ROOT)
+        urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
