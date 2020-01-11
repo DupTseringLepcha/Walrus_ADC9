@@ -1,9 +1,5 @@
-
     <h2>Upload</h2>
     <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
         <input type="file">
         <button type="submit">Upload</button>
     </form>
-
-    <p>Uploaded file: <a href="{{url}}">{{ url }}</a></p>
