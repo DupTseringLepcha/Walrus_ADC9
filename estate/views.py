@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Property
+
+from django.conf import settings
 # Create your views here.
 
 def get_add_property(req):
@@ -49,3 +51,7 @@ def get_estates_home(req):
     }
     return render(req,'estates_home.html',context=context)
 
+def file_upload(request):
+    save_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['file'])
+    path = default_storage.save(save_path, request.FILES['file'])
+    return default_storage.path(path)
