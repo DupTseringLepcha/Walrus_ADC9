@@ -48,3 +48,4 @@ def get_estates_home(req):
         "estates":all_estates
     }
     return render(req,'estates_home.html',context=context)
+
