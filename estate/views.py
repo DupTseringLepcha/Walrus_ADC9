@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Property
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 from django.http import HttpResponse 
@@ -9,6 +10,11 @@ from .forms import *
 
 from django.conf import settings
 >>>>>>> BishalGurung_Walrus_DownloadandUploadFeature
+=======
+from django.http import HttpResponse
+
+
+>>>>>>> PrajwalPandey_Walrus_SearchFeature
 # Create your views here.
 
 def get_add_property(req):
@@ -59,6 +65,7 @@ def get_estates_home(req):
     return render(req,'estates_home.html',context=context)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 def file_upload(request):
     save_path = os.path.join(settings.MEDIA_ROOT, 'uploads', request.FILES['file'])
@@ -90,3 +97,12 @@ def display_property_images(request):
         return render((request, 'display_property_images.html', 
                      {'property_images' : Properties}))
 >>>>>>> BishalGurung_Walrus_DownloadandUploadFeature
+=======
+def search(req):
+    return render(req, 'searchforms.html')
+
+def searchdata(req):
+    property_multiples = Property.objects.filter(property_name= req.GET['name']) 
+    print("The searched data" , property_multiples)
+    return HttpResponse("record searched")
+>>>>>>> PrajwalPandey_Walrus_SearchFeature
