@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Property
+from django.views.generic import TemplateView
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 def get_add_property(req):
@@ -49,3 +51,11 @@ def get_estates_home(req):
     }
     return render(req,'estates_home.html',context=context)
 
+def upload(request)
+if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        print(uploaded_file.name)
+        print(uploaded_file.size)
+        fs = FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
+    return render(request, 'upload.html')
